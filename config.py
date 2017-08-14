@@ -14,6 +14,9 @@ MYSQL_CONFIG = {
     'charset': 'utf8'
 }
 
+MYSQL_TABLE_LIST=['Location','City','Reservoir','WaterSupply','FlowObservatory','Forecast','IrrigationArea','ReservoirState','RegionalWaterRegime','Q90','Q95','NextReservoirLights','NextWeekP','RuleCurve','SimReservoirFlow','WaterIntakeStructures','ForecastingTime','Light','PreWaterLevel','PreWaterStorageCapacity']
+
+
 MYSQL_TABLE = {
     'Location':"""CREATE TABLE IF NOT EXISTS Location (
                L_ID                 INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -76,9 +79,8 @@ MYSQL_TABLE = {
                 )ENGINE=InnoDB""",
    
     'ReservoirState': """CREATE TABLE IF NOT EXISTS ReservoirState (
-                RS_ID INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                R_ID INT(10),
-                Reservoir CHAR(8) NOT NULL,
+                RS_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                R_ID INT,
                 TimeStamp DATETIME NOT NULL,
                 WaterLevel FLOAT(8,3) DEFAULT NULL,
                 EffectiveWaterStorageCapacity FLOAT(8,3) DEFAULT NULL,
@@ -88,7 +90,7 @@ MYSQL_TABLE = {
                 ) ENGINE=InnoDB""",
     'RegionalWaterRegime': """CREATE TABLE IF NOT EXISTS RegionalWaterRegime (
                 RWR_ID INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                C_ID CHAR(8) NOT NULL,
+                C_ID int,
                 TimeStamp DATETIME NOT NULL,
                 ReservoirLightsNow CHAR(1) DEFAULT NULL,
                 FOREIGN KEY (C_ID) REFERENCES City (C_ID)

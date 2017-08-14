@@ -9,8 +9,8 @@ from config import *
 def help():
     print('  USAGE: valid command list as followed')
     print('  create_demodb_and_demouser ')
-    print('  create_table_stations ')
-    print('  drop_table_stations ')
+    print('  create_table ')
+    print('  drop_table ')
     print('  setup')
 
 def root_connect():
@@ -70,8 +70,8 @@ def create_table(table):
     try:
         cursor.execute(table_ex)
     except:
-        t = "WARNING: "+table+ "might already exist"
-        print()
+        t = "WARNING: "+table+ "might already exist or you haven't created the FK table."
+        print(t)
         cursor.close()
         conn.close()
         sys.exit()
@@ -107,8 +107,27 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2 and sys.argv[1] in ["create_table", 
                                                 "drop_table"]:
         print('Enter the table name.')
+        print('Location')
+        print('City')
+        print('Reservoir')
+        print('WaterSupply')
+        print('FlowObservatory')
+        print('Forecast')
+        print('IrrigationArea')
         print('ReservoirState')
         print('RegionalWaterRegime')
+        print('Q90')
+        print('Q95')
+        print('NextReservoirLights')
+        print('NextWeekP')
+        print('RuleCurve')
+        print('SimReservoirFlow')
+        print('WaterIntakeStructures')
+        print('ForecastingTime')
+        print('Light')
+        print('PreWaterLevel')
+        print('PreWaterStorageCapacity')
+
         
     elif len(sys.argv) == 3 and sys.argv[1] in ["create_table", 
                                                 "drop_table"]:

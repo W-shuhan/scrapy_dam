@@ -166,6 +166,8 @@ if __name__ == '__main__':
         print('Light')
         print('PreWaterLevel')
         print('PreWaterStorageCapacity')
+        print('PeoplesLivelihoodWater')
+        print('IrrigationWaterDemand')
 """
         
     elif len(sys.argv) == 3 and sys.argv[1] in ["create_table", 
